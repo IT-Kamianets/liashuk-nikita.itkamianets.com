@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Сторінку не знайдено</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Декоративні розмиті круги на фоні */
+        .bg-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            filter: blur(100px);
+            opacity: 0.4;
+            z-index: 0;
+            animation: pulse 6s infinite alternate;
+        }
+
+        .bg-glow-2 {
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            filter: blur(100px);
+            opacity: 0.3;
+            z-index: 0;
+            animation: pulse 8s infinite alternate-reverse;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.2) translate(30px, -30px); }
+        }
+
+        /* Контейнер вмісту */
+        .container {
+            text-align: center;
+            max-width: 600px;
+            z-index: 1;
+            background: rgba(30, 41, 59, 0.7);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Заголовок 404 */
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, #818cf8, #c084fc, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .error-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .error-description {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Кнопки */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+            background: linear-gradient(135deg, #4f46e5, #4338ca);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Адаптивність */
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            .error-title {
+                font-size: 1.3rem;
+            }
+            .container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Фоновий ефект -->
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- Основний блок -->
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Упс! Сторінку не знайдено</h1>
+        <p class="error-description">
+            Можливо, ця сторінка була видалена, перейменована або тимчасово недоступна. Перевірте правильність введеної адреси.
+        </p>
+
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-primary">На головну</a>
+            <button onclick="history.back()" class="btn btn-secondary">Назад</button>
+        </div>
+    </div>
+
+</body>
+</html>
