@@ -1,17 +1,60 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="Особиста сторінка Нікіти — студента фізмату,
-          програміста та розробника навчальних проєктів.">
+    <!-- SEO -->
+    <title>Нікіта Ляшук — програміст | IT-портфоліо та FPV-технології</title>
 
-    <title>Нікіта | Програмування та технології</title>
+    <meta name="description" content="Нікіта Ляшук — студент-програміст. Особисте портфоліо, веброзробка, IT-проєкти та FPV-технології.">
+
+    <meta name="keywords" content="Нікіта Ляшук, резюме програміста, портфоліо програміста, веброзробка, JavaScript, C++, Python, FPV Drone Academy">
+
+    <meta name="author" content="Нікіта Ляшук">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#080d18">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:title" content="Нікіта Ляшук — програмування та FPV-технології">
+    <meta property="og:description" content="Особисте портфоліо Нікіти Ляшука: програмування, IT-проєкти та FPV Drone Academy.">
+    <meta property="og:image" content="https://liashuk-nikita.itkamianets.com/images/og-cover.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Нікіта Ляшук — IT-портфоліо">
+    <meta name="twitter:description" content="Студент-програміст, IT-проєкти та FPV-технології.">
+    <meta name="twitter:image" content="https://liashuk-nikita.itkamianets.com/images/og-cover.png">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Нікіта Ляшук",
+        "url": "https://liashuk-nikita.itkamianets.com/",
+        "jobTitle": "Студент-програміст",
+        "description": "Студент фізико-математичного факультету, який вивчає програмування та розробляє IT-проєкти.",
+        "knowsAbout": [
+            "Програмування",
+            "JavaScript",
+            "C++",
+            "Python",
+            "Веброзробка",
+            "FPV-технології"
+        ],
+        "sameAs": [
+            "https://github.com/lyashuknk69"
+        ]
+    }
+    </script>
+
+    <link rel="preload" as="image" href="images/og-cover.png">
 
     <style>
-        /* Базові налаштування */
         * {
             margin: 0;
             padding: 0;
@@ -25,8 +68,8 @@
             --text: #f1f5f9;
             --muted: #9caec5;
             --accent: #38bdf8;
-            --accent-purple: #818cf8;
-            --border: rgba(148, 163, 184, 0.16);
+            --purple: #818cf8;
+            --border: rgba(148,163,184,0.16);
         }
 
         html {
@@ -47,15 +90,16 @@
 
         .container {
             width: min(1100px, 90%);
-            margin: 0 auto;
+            margin: auto;
         }
 
-        /* Навігація */
+        /* HEADER */
+
         header {
             position: sticky;
             top: 0;
             z-index: 10;
-            background: rgba(8, 13, 24, 0.92);
+            background: rgba(8,13,24,0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
@@ -69,9 +113,8 @@
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            letter-spacing: 1px;
         }
 
         .logo span {
@@ -87,30 +130,38 @@
 
         .nav-links a {
             color: var(--muted);
-            transition: color 0.2s;
+            transition: .2s;
         }
 
         .nav-links a:hover {
             color: var(--accent);
         }
 
-        /* Головний екран */
+        /* HERO */
+
         .hero {
             min-height: 590px;
             display: flex;
             align-items: center;
-            padding: 90px 0;
+            padding: 80px 0;
             background:
                 radial-gradient(
                     ellipse at 80% 30%,
-                    rgba(56, 189, 248, 0.12),
+                    rgba(56,189,248,.13),
                     transparent 45%
                 ),
                 radial-gradient(
                     ellipse at 15% 80%,
-                    rgba(129, 140, 248, 0.10),
+                    rgba(129,140,248,.10),
                     transparent 40%
                 );
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr .9fr;
+            align-items: center;
+            gap: 35px;
         }
 
         .hero-content {
@@ -120,16 +171,16 @@
         .eyebrow {
             display: inline-block;
             color: var(--accent);
-            background: rgba(56, 189, 248, 0.08);
-            border: 1px solid rgba(56, 189, 248, 0.25);
+            background: rgba(56,189,248,.08);
+            border: 1px solid rgba(56,189,248,.25);
             border-radius: 50px;
             padding: 6px 14px;
-            font-size: 0.9rem;
+            font-size: .9rem;
             margin-bottom: 24px;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-size: clamp(2.5rem,7vw,4.5rem);
             line-height: 1.1;
             letter-spacing: -2px;
             margin-bottom: 24px;
@@ -141,9 +192,20 @@
 
         .hero p {
             color: var(--muted);
-            font-size: 1.15rem;
-            max-width: 650px;
-            margin-bottom: 32px;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-visual img {
+            display: block;
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid rgba(56,189,248,.4);
+            box-shadow: 0 20px 70px rgba(0,0,0,.5);
         }
 
         .buttons {
@@ -160,7 +222,7 @@
             border: 1px solid transparent;
             cursor: pointer;
             font: inherit;
-            transition: 0.2s;
+            transition: .2s;
         }
 
         .btn-primary {
@@ -182,7 +244,8 @@
             background: var(--surface-light);
         }
 
-        /* Заголовки секцій */
+        /* SECTIONS */
+
         section {
             scroll-margin-top: 90px;
         }
@@ -196,7 +259,7 @@
         }
 
         .section-heading h2 {
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-size: clamp(1.8rem,4vw,2.6rem);
             margin-bottom: 10px;
         }
 
@@ -205,10 +268,11 @@
             max-width: 650px;
         }
 
-        /* Картки */
+        /* SKILLS */
+
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(3,minmax(0,1fr));
             gap: 22px;
         }
 
@@ -217,12 +281,12 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 26px;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: .2s;
         }
 
         .card:hover {
             transform: translateY(-4px);
-            border-color: rgba(56, 189, 248, 0.5);
+            border-color: var(--accent);
         }
 
         .card-icon {
@@ -237,13 +301,13 @@
 
         .card p {
             color: var(--muted);
-            font-size: 0.97rem;
         }
 
-        /* Про мене */
+        /* ABOUT */
+
         .about-box {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.2fr .8fr;
             gap: 36px;
             align-items: start;
         }
@@ -272,18 +336,18 @@
 
         .fact span {
             color: var(--muted);
-            font-size: 0.95rem;
+            font-size: .95rem;
         }
 
-        /* Майбутній проєкт */
+        /* PROJECT */
+
         .project {
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(56, 189, 248, 0.09),
-                    rgba(129, 140, 248, 0.08)
-                );
-            border: 1px solid rgba(56, 189, 248, 0.22);
+            background: linear-gradient(
+                135deg,
+                rgba(56,189,248,.09),
+                rgba(129,140,248,.08)
+            );
+            border: 1px solid rgba(56,189,248,.22);
             border-radius: 20px;
             padding: 36px;
         }
@@ -311,10 +375,11 @@
             background: var(--surface-light);
             border: 1px solid var(--border);
             color: #cbd5e1;
-            font-size: 0.9rem;
+            font-size: .9rem;
         }
 
-        /* Контакти */
+        /* CONTACTS */
+
         .contact-box {
             text-align: center;
             background: var(--surface);
@@ -329,18 +394,29 @@
             max-width: 600px;
         }
 
+        /* FOOTER */
+
         footer {
             padding: 26px 0;
             border-top: 1px solid var(--border);
             color: var(--muted);
             text-align: center;
-            font-size: 0.9rem;
+            font-size: .9rem;
         }
 
-        /* Адаптація для телефонів */
+        /* MOBILE */
+
         @media (max-width: 800px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                max-width: 620px;
+            }
+
             .grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: repeat(2,1fr);
             }
 
             .about-box {
@@ -365,7 +441,7 @@
 
             .hero {
                 min-height: auto;
-                padding: 75px 0;
+                padding: 65px 0;
             }
 
             .hero h1 {
@@ -385,25 +461,36 @@
 
 <body>
 
-    <!-- Навігація -->
+    <!-- NAVIGATION -->
+
     <header>
         <nav class="container">
-            <a href="#home" class="logo">NIKITA<span>.</span></a>
+
+            <a href="#home" class="logo">
+                NIKITA<span>.</span>
+            </a>
 
             <ul class="nav-links">
+                <li><a href="#home">Головна</a></li>
                 <li><a href="#about">Про мене</a></li>
-                <li><a href="#skills">Напрями</a></li>
-                <li><a href="#project">Мій проєкт</a></li>
+                <li><a href="#skills">Навички</a></li>
+                <li><a href="#project">Проєкти</a></li>
                 <li><a href="#contacts">Контакти</a></li>
             </ul>
+
         </nav>
     </header>
 
-    <!-- Головний екран -->
-    <main>
+    <main id="main-content">
+
+        <!-- HERO -->
+
         <section class="hero" id="home">
-            <div class="container">
+
+            <div class="container hero-layout">
+
                 <div class="hero-content">
+
                     <span class="eyebrow">
                         Студент • Програміст • Технології
                     </span>
@@ -414,13 +501,15 @@
                     </h1>
 
                     <p>
-                        Мені 19 років. Я навчаюся на фізико-математичному
-                        напрямі за спеціальністю, пов'язаною з програмуванням,
-                        додатково опановую керування FPV-дронами та планую
-                        створити власну навчальну програму.
+                        Мені 19 років. Я навчаюся на
+                        фізико-математичному напрямі за спеціальністю,
+                        пов'язаною з програмуванням. Додатково
+                        опановую FPV-технології та планую створити
+                        власну навчальну платформу.
                     </p>
 
                     <div class="buttons">
+
                         <a href="#project" class="btn btn-primary">
                             Мій проєкт
                         </a>
@@ -428,24 +517,49 @@
                         <a href="#about" class="btn btn-secondary">
                             Дізнатися більше
                         </a>
+
                     </div>
+
                 </div>
+
+                <div class="hero-visual">
+
+                    <img
+                        src="images/og-cover.png"
+                        alt="Нікіта Ляшук — програмування та FPV-технології"
+                        width="1648"
+                        height="928"
+                        fetchpriority="high"
+                    >
+
+                </div>
+
             </div>
+
         </section>
 
-        <!-- Про мене -->
+        <!-- ABOUT -->
+
         <section class="section" id="about">
+
             <div class="container">
+
                 <div class="section-heading">
+
                     <h2>Про мене</h2>
+
                     <p>
                         Мій шлях — це поєднання технічних знань,
-                        практичного навчання та бажання створювати власні рішення.
+                        практичного навчання та бажання створювати
+                        власні рішення.
                     </p>
+
                 </div>
 
                 <div class="about-box">
+
                     <div class="about-text">
+
                         <p>
                             Зараз я навчаюся на фізматі та розвиваюся
                             у сфері програмування. Мені цікаво розуміти,
@@ -454,21 +568,23 @@
                         </p>
 
                         <p>
-                            Паралельно я навчаюся на військового оператора
-                            FPV-дронів. Цей напрям відкриває для мене
-                            можливості краще поєднати програмування,
+                            Паралельно я вивчаю напрям FPV-технологій.
+                            Це дозволяє поєднувати програмування,
                             техніку та симуляційні технології.
                         </p>
 
                         <p>
-                            Одна з моїх цілей — створити програму для
-                            навчання роботі з FPV-дронами, яка допомагатиме
-                            вивчати теорію та відпрацьовувати навички
-                            у контрольованому віртуальному середовищі.
+                            Одна з моїх цілей — створити програму
+                            для навчання роботі з FPV-дронами,
+                            яка допомагатиме вивчати теорію
+                            та відпрацьовувати навички
+                            у віртуальному середовищі.
                         </p>
+
                     </div>
 
                     <div class="facts">
+
                         <div class="fact">
                             <strong>Вік</strong>
                             <span>19 років</span>
@@ -486,135 +602,189 @@
 
                         <div class="fact">
                             <strong>Додатковий напрям</strong>
-                            <span>Навчання керуванню FPV-дронами</span>
+                            <span>FPV-технології</span>
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- Напрями розвитку -->
+        <!-- SKILLS -->
+
         <section class="section" id="skills">
+
             <div class="container">
+
                 <div class="section-heading">
-                    <h2>Мої напрями розвитку</h2>
+
+                    <h2>Мої навички та напрями розвитку</h2>
+
                     <p>
-                        Сфери, на яких я зосереджую увагу під час навчання
-                        та роботи над власними ідеями.
+                        Сфери, на яких я зосереджую увагу
+                        під час навчання та роботи над власними ідеями.
                     </p>
+
                 </div>
 
                 <div class="grid">
+
                     <article class="card">
+
                         <div class="card-icon">💻</div>
+
                         <h3>Програмування</h3>
+
                         <p>
                             Розробка програм, вивчення алгоритмів,
-                            побудова програмної архітектури та
-                            створення власних цифрових продуктів.
+                            програмної архітектури та створення
+                            власних цифрових продуктів.
                         </p>
+
                     </article>
 
                     <article class="card">
+
                         <div class="card-icon">📐</div>
+
                         <h3>Математика та фізика</h3>
+
                         <p>
                             Математичне мислення, моделювання процесів
                             і застосування фізичних принципів
                             у технологічних проєктах.
                         </p>
+
                     </article>
 
                     <article class="card">
+
                         <div class="card-icon">🛸</div>
+
                         <h3>FPV-технології</h3>
+
                         <p>
                             Вивчення принципів роботи безпілотних
                             платформ, симуляцій та безпечних
                             навчальних сценаріїв.
                         </p>
+
                     </article>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- Мій проєкт -->
+        <!-- PROJECT -->
+
         <section class="section" id="project">
+
             <div class="container">
+
                 <div class="section-heading">
+
                     <h2>Мій майбутній проєкт</h2>
+
                     <p>
-                        Ідея, яку я хочу перетворити на реальний
-                        програмний продукт.
+                        Ідея, яку я хочу перетворити
+                        на реальний програмний продукт.
                     </p>
+
                 </div>
 
                 <div class="project">
-                    <h3>FPV Training Simulator</h3>
+
+                    <h3>FPV Drone Academy</h3>
 
                     <p>
-                        Навчальна платформа для вивчення теорії,
-                        ознайомлення з інтерфейсами керування,
-                        розвитку координації та відпрацювання
-                        базових навичок у віртуальному середовищі.
-                        Мета — зробити навчання наочним,
-                        послідовним і доступним для оцінювання.
+                        Інтерактивна навчальна платформа для вивчення
+                        FPV-технологій. Проєкт передбачає навчальні
+                        матеріали, теоретичні курси, віртуальне
+                        конструювання моделей, перевірку знань
+                        та тренування у симуляторі.
                     </p>
 
                     <div class="tags">
+
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
                         <span class="tag">Програмування</span>
                         <span class="tag">Симуляція</span>
-                        <span class="tag">Фізика</span>
                         <span class="tag">3D-технології</span>
                         <span class="tag">Навчальне ПЗ</span>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- Контакти -->
+        <!-- CONTACTS -->
+
         <section class="section" id="contacts">
+
             <div class="container">
+
                 <div class="contact-box">
+
                     <h2>Маєш цікаву ідею?</h2>
 
                     <p>
-                        Я розвиваюся у програмуванні та працюю над
-                        власними технічними задумами. Ця сторінка —
-                        мій перший крок до особистого портфоліо.
+                        Я розвиваюся у програмуванні та працюю
+                        над власними технічними задумами.
+                        Ця сторінка — мій крок до професійного
+                        портфоліо.
                     </p>
 
-                    <button class="btn btn-primary" id="helloButton">
-                        Привітатися 👋
-                    </button>
+                    <a
+                        href="https://github.com/lyashuknk69"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        Мій GitHub
+                    </a>
+
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
-    <!-- Підвал -->
+    <!-- FOOTER -->
+
     <footer>
+
         <div class="container">
+
             <p>
-                © <span id="year"></span> Нікіта.
-                Особисте портфоліо та навчальні проєкти.
+                © <span id="year"></span> Нікіта Ляшук.
+                Особисте портфоліо та IT-проєкти.
             </p>
+
         </div>
+
     </footer>
 
+    <!-- JAVASCRIPT -->
+
     <script>
+
         // Автоматичне оновлення року
+
         document.getElementById("year").textContent =
             new Date().getFullYear();
 
-        // Інтерактивна кнопка
-        document
-            .getElementById("helloButton")
-            .addEventListener("click", function () {
-                alert(
-                    "Привіт! 👋 Дякую, що завітав на мою сторінку!"
-                );
-            });
     </script>
 
 </body>
